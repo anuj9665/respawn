@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:respawn/view/home_page.dart';
-import 'package:respawn/view/home_screen.dart';
-import 'package:respawn/view/parallel_screen.dart';
-import 'package:respawn/view/sub_mission_screen.dart';
 
 void main() {
   runApp(const Respawn());
