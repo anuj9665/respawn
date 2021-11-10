@@ -1,25 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:respawn/utils/colors.dart';
+import 'package:respawn/utils/enums/difficulty_level.dart';
 
-class GoalCards extends StatelessWidget {
+class GoalCards extends StatefulWidget {
   const GoalCards({
     Key? key,
-    required this.size,
-    required this.index,
+    required this.index, required this.serialNumber, required this.title, required this.desc, required this.rating, required this.reward,
   }) : super(key: key);
 
-  final Size size;
   final int index;
+    final int serialNumber;
+  final String title;
+  final String desc;
+  final Level rating;
+  final int reward;
 
   @override
+  State<GoalCards> createState() => _GoalCardsState();
+}
+
+class _GoalCardsState extends State<GoalCards> {
+  @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Container(
         margin: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
         height: size.height * 0.35,
         width: size.width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
-          border: Border.all(color: colorList[index % 4], width: 2),
+          border: Border.all(color: colorList[widget.index % 4], width: 2),
           color: Colors.white,
         ),
         child: Column(
@@ -27,7 +37,7 @@ class GoalCards extends StatelessWidget {
             Container(
               height: 25,
               decoration: BoxDecoration(
-                  color: colorList[index % 4],
+                  color: colorList[widget.index % 4],
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
                       topRight: Radius.circular(30))),
@@ -38,8 +48,8 @@ class GoalCards extends StatelessWidget {
               // color: Colors.green,
               child: Center(
                   child: Text(
-                "1. My Name is Anuj Yadav",
-                style: TextStyle(
+                "${widget.serialNumber}. ${widget.title}",
+                style: const TextStyle(
                   fontWeight: FontWeight.w700,
                   fontSize: 20,
                 ),
@@ -50,9 +60,8 @@ class GoalCards extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 color: Colors.white,
                 child: Text(
-                  "LoremIpssum Performing hot reload...  560 libraries in 400msLoremIpssum P0 libraries in 400ms.LoremIpssu Performing hot reload...  560 libraries in 400ms..",
-                  style:
-                      TextStyle(overflow: TextOverflow.fade, fontSize: 16),
+                  widget.desc,
+                  style: const TextStyle(overflow: TextOverflow.fade, fontSize: 16),
                   textAlign: TextAlign.justify,
                 ),
               ),
@@ -63,14 +72,14 @@ class GoalCards extends StatelessWidget {
                       bottomLeft: Radius.circular(30),
                       bottomRight: Radius.circular(30)),
                   border: Border.all(
-                    color: colorList[index % 4],
+                    color: colorList[widget.index % 4],
                   )),
               height: 60,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Text(
-                    "500",
+                    widget.reward.toString(),
                     style: TextStyle(
                         color: kPrimaryBlackColor,
                         fontWeight: FontWeight.w700,
@@ -81,8 +90,8 @@ class GoalCards extends StatelessWidget {
                     width: 140,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: colorList[index % 4]),
-                    child: Center(
+                        color: colorList[widget.index % 4]),
+                    child: const Center(
                       child: Text(
                         "Done",
                         style: TextStyle(

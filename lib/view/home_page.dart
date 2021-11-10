@@ -19,6 +19,10 @@ class _HomePageState extends State<HomePage> {
     
     HomeScreen(),
     ParallelScreen(),
+    // Text(
+    //   'Index 3: Parallel',
+    //   style: optionStyle,
+    // ),
     Text(
       'Index 3: Money',
       style: optionStyle,

@@ -5,12 +5,16 @@ Color kPrimaryGoldColor = Color(0xffFFE76D);
 Color kPrimaryRedColor = Color(0xffF86969);
 Color kPrimaryGreenColor = Color(0xff51CBC4);
 Color kBackgroundWhiteColor = Color(0xffEFEFEF);
-Color kDarkGoldColor = Color(0xffffcc11); 
-
+Color kDarkGoldColor = Color(0xffffcc11);
 
 List<Color> colorList = [
-      Color(0xff9DE437),
-      Color(0xffE5D53E),
-      Color(0xffECA54B),
-      Color(0xffE43737),
-    ];
+  Color(0xff9DE437),
+  Color(0xffE5D53E),
+  Color(0xffECA54B),
+  Color(0xffE43737),
+];
+
+Color easy = Color(0xff9DE437);
+Color medium = Color(0xffE5D53E);
+Color hard =  Color(0xffECA54B);
+Color superHard =  Color(0xffE43737);
